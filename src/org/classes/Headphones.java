@@ -4,8 +4,9 @@ public class Headphones extends Prodotto {
     protected String colore;
     protected boolean isWireless;
 
-    public Headphones(String name, String brand, Double pryce, Double tax, String colore, boolean isWireless) {
-        super(name, brand, pryce, tax);
+    public Headphones(String name, String brand, Double pryce, Double tax, Boolean fedelityCard, String colore,
+            boolean isWireless) {
+        super(name, brand, pryce, tax, fedelityCard);
         if (colore != null) {
             this.colore = colore;
             this.isWireless = isWireless;

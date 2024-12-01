@@ -4,12 +4,17 @@ import org.classes.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Carrello {
     public static void main(String[] args) {
+
+        Boolean loyaltyCard = false;
         // carrello
         List<Prodotto> carrello = new ArrayList<>();
-
+        Scanner input = new Scanner(System.in);
+        System.out.println("Hai la carta fedeltà?");
+        loyaltyCard = input.nextBoolean();
         // Headphones
         Headphones headphones1 = new Headphones("AirPods", "Apple", 199.99, 22.0, "Bianco", true);
         Headphones headphones2 = new Headphones("WH-1000XM4", "Sony", 349.99, 22.0, "Nero", true);

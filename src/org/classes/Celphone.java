@@ -6,8 +6,8 @@ public class Celphone extends Prodotto {
     protected String imei;
     protected int memory;
 
-    public Celphone(String name, String brand, Double pryce, Double tax, int memory) {
-        super(name, brand, pryce, tax);
+    public Celphone(String name, String brand, Double pryce, Double tax, Boolean fedelityCard, int memory) {
+        super(name, brand, pryce, tax, fedelityCard);
         if (memory >= 0) {
             Random random = new Random();
             StringBuilder temp = new StringBuilder();

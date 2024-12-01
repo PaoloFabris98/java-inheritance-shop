@@ -8,8 +8,9 @@ public class Prodotto {
     protected String brand;
     protected Double pryce = 0.0;
     protected Double tax = 0.0;
+    protected boolean fedelityCard = false;
 
-    public Prodotto(String name, String brand, Double pryce, Double tax) {
+    public Prodotto(String name, String brand, Double pryce, Double tax, Boolean fedelityCard) {
         if (name != null && brand != null && pryce >= 0 && tax >= 0) {
             Random random = new Random();
             this.code = random.nextInt(1000000);
@@ -17,6 +18,7 @@ public class Prodotto {
             this.brand = brand;
             this.pryce = pryce;
             this.tax = tax;
+            this.fedelityCard = fedelityCard;
         } else {
             System.out.println("Uno o più valori sono errati, non posso creare l'oggetto.");
         }
