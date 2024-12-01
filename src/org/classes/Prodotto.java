@@ -43,6 +43,10 @@ public class Prodotto {
         return pryce + ((pryce / 100) * tax);
     }
 
+    public String getFormattedTaxedPryce() {
+        return String.format("%.2f", getTaxedPryce());
+    }
+
     public Double getTax() {
         return this.tax;
     }
