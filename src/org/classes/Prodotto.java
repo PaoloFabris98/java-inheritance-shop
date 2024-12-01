@@ -6,8 +6,8 @@ public class Prodotto {
     protected int code;
     protected String name;
     protected String brand;
-    protected Double pryce;
-    protected Double tax;
+    protected Double pryce = 0.0;
+    protected Double tax = 0.0;
 
     public Prodotto(String name, String brand, Double pryce, Double tax) {
         if (name != null && brand != null && pryce >= 0 && tax >= 0) {
@@ -37,6 +37,10 @@ public class Prodotto {
 
     public Double getPryce() {
         return this.pryce;
+    }
+
+    public Double getTaxedPryce() {
+        return pryce + ((pryce / 100) * tax);
     }
 
     public Double getTax() {
