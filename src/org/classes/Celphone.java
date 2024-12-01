@@ -20,7 +20,7 @@ public class Celphone extends Prodotto {
             this.imei = temp.toString();
             this.memory = memory;
             if (this.memory < memoriEnanchedDiscountLimit) {
-                this.standardDiscount = memoryDiscount;
+                this.standardDiscount = this.memoryDiscount;
             }
         }
     }

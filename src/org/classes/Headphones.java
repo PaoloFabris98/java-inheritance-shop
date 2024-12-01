@@ -12,7 +12,7 @@ public class Headphones extends Prodotto {
             this.colore = colore;
             this.isWireless = isWireless;
             if (isWireless == false) {
-                this.standardDiscount = wiredDiscount;
+                this.standardDiscount = this.wiredDiscount;
             }
         }
     }

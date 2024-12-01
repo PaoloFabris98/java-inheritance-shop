@@ -12,7 +12,7 @@ public class Television extends Prodotto {
             this.grandezza = grandezza;
             this.smartScreen = smartScreen;
             if (smartScreen == false) {
-                this.standardDiscount = smartDiscount;
+                this.standardDiscount = this.smartDiscount;
             }
         }
     }
