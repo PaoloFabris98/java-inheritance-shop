@@ -9,56 +9,86 @@ import java.util.Scanner;
 public class Carrello {
     public static void main(String[] args) {
 
-        // carrello
-        List<Prodotto> carrello = new ArrayList<>();
-        // Headphones
-        Headphones headphones1 = new Headphones("AirPods", "Apple", 199.99, 22.0, "Bianco", true);
-        Headphones headphones2 = new Headphones("WH-1000XM4", "Sony", 349.99, 22.0, "Nero", true);
-        Headphones headphones3 = new Headphones("QuietComfort 45", "Bose", 329.99, 22.0, "Argento", true);
+        List<Prodotto> prodotti = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        String fidelityCard;
 
-        // Television
-        Television tv1 = new Television("OLED TV", "LG", 1500.0, 22.0, 55, true);
-        Television tv2 = new Television("Bravia", "Sony", 1200.0, 22.0, 50, true);
+        System.out.println("Hai la tessera fedeltà? [y/n]");
+        fidelityCard = input.nextLine();
 
-        // Celphone
-        Celphone phone1 = new Celphone("Galaxy S21", "Samsung", 799.99, 22.0, 128);
-        Celphone phone2 = new Celphone("iPhone 13", "Apple", 999.99, 22.0, 256);
+        Celphone phone1 = new Celphone("iPhone 14", "Apple", 999.99, 22.0, 128);
+        phone1.setFidelityCard(fidelityCard);
+        prodotti.add(phone1);
 
-        carrello.add(headphones1);
-        carrello.add(headphones2);
-        carrello.add(tv1);
-        carrello.add(phone1);
+        Celphone phone2 = new Celphone("Galaxy S23", "Samsung", 799.99, 22.0, 64);
+        phone2.setFidelityCard(fidelityCard);
+        prodotti.add(phone2);
 
-        System.out.println("\nTentativo di aggiungere un prodotto nullo:");
-        Prodotto prodottoNullo = null;
-        if (prodottoNullo == null) {
-            System.out.println("Errore: Il prodotto non può essere nullo e non è stato aggiunto al carrello.");
-        }
+        Celphone phone3 = new Celphone("Pixel 7", "Google", 599.99, 22.0, 32);
+        phone3.setFidelityCard(fidelityCard);
+        prodotti.add(phone3);
 
-        System.out.println("\nCreazione di prodotti con valori non validi:");
-        Headphones invalidHeadphones = new Headphones(null, "FakeBrand", -10.0, -5.0, null, false);
-        Television invalidTv = new Television("InvalidTV", null, -500.0, -10.0, -50, false);
-        Celphone invalidPhone = new Celphone(null, null, -999.0, -22.0, -128);
+        Celphone phone4 = new Celphone("Xperia 5", "Sony", 699.99, 22.0, 16);
+        phone4.setFidelityCard(fidelityCard);
+        prodotti.add(phone4);
 
-        System.out.println("\nProdotti nel carrello:");
-        for (Prodotto prodotto : carrello) {
-            System.out.println("- " + prodotto.getName() + " di " + prodotto.getBrand() +
-                    " | Prezzo base: " + prodotto.getPryce() +
-                    " | Prezzo con IVA: " + prodotto.getTaxedPryce());
-        }
+        Celphone phone5 = new Celphone("Redmi Note 12", "Xiaomi", 299.99, 22.0, 8);
+        phone5.setFidelityCard(fidelityCard);
+        prodotti.add(phone5);
 
-        System.out.println("\n\nPrezzi senza IVA.\n");
-        for (Prodotto prodotto : carrello) {
-            System.out.println("Marca: " + prodotto.getBrand());
-            System.out.println("Prezzo: " + prodotto.getPryce() + " Euro.");
-            System.out.println();
-        }
-        System.out.println("\nPrezzi con IVA.\n");
-        for (Prodotto prodotto : carrello) {
-            System.out.println("Marca: " + prodotto.getBrand());
-            System.out.println("Prezzo: " + prodotto.getFormattedTaxedPryce() + " Euro.");
-            System.out.println();
+        Television tv1 = new Television("OLED CX", "LG", 1499.99, 22.0, 55, true);
+        tv1.setFidelityCard(fidelityCard);
+        prodotti.add(tv1);
 
+        Television tv2 = new Television("Crystal UHD", "Samsung", 599.99, 22.0, 43, false);
+        tv2.setFidelityCard(fidelityCard);
+        prodotti.add(tv2);
+
+        Television tv3 = new Television("Bravia XR", "Sony", 1299.99, 22.0, 65, true);
+        tv3.setFidelityCard(fidelityCard);
+        prodotti.add(tv3);
+
+        Television tv4 = new Television("QLED Q60B", "Samsung", 799.99, 22.0, 50, false);
+        tv4.setFidelityCard(fidelityCard);
+        prodotti.add(tv4);
+
+        Television tv5 = new Television("NanoCell", "LG", 999.99, 22.0, 75, true);
+        tv5.setFidelityCard(fidelityCard);
+        prodotti.add(tv5);
+
+        Headphones headphones1 = new Headphones("AirPods Pro", "Apple", 249.99, 22.0, "White", true);
+        headphones1.setFidelityCard(fidelityCard);
+        prodotti.add(headphones1);
+
+        Headphones headphones2 = new Headphones("WH-1000XM5", "Sony", 349.99, 22.0, "Black", true);
+        headphones2.setFidelityCard(fidelityCard);
+        prodotti.add(headphones2);
+
+        Headphones headphones3 = new Headphones("Soundcore Life Q20", "Anker", 59.99, 22.0, "Blue", false);
+        headphones3.setFidelityCard(fidelityCard);
+        prodotti.add(headphones3);
+
+        Headphones headphones4 = new Headphones("QC45", "Bose", 329.99, 22.0, "Silver", true);
+        headphones4.setFidelityCard(fidelityCard);
+        prodotti.add(headphones4);
+
+        Headphones headphones5 = new Headphones("Tune 510BT", "JBL", 49.99, 22.0, "Pink", false);
+        headphones5.setFidelityCard(fidelityCard);
+        prodotti.add(headphones5);
+
+        for (Prodotto prodotto : prodotti) {
+            System.out.println("Codice: " + prodotto.getCode());
+            System.out.println("Nome: " + prodotto.getName());
+            System.out.println("Marchio: " + prodotto.getBrand());
+            System.out.println("Prezzo Base: " + prodotto.getPryce() + " euro");
+
+            if (prodotto.getFidelityCard()) {
+                System.out.println("Prezzo con Sconto: " + prodotto.getFormattedTaxedPryce() + " euro");
+            } else {
+                System.out.println("Prezzo con Tassa: " + prodotto.getFormattedTaxedPryce() + " euro");
+            }
+
+            System.out.println("----------");
         }
     }
 }

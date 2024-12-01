@@ -8,9 +8,10 @@ public class Prodotto {
     protected String brand;
     protected Double pryce = 0.0;
     protected Double tax = 0.0;
-    protected boolean fedelityCard = false;
+    protected int standardDiscount = 2;
+    protected String fidelityCard = "n";
 
-    public Prodotto(String name, String brand, Double pryce, Double tax, Boolean fedelityCard) {
+    public Prodotto(String name, String brand, Double pryce, Double tax) {
         if (name != null && brand != null && pryce >= 0 && tax >= 0) {
             Random random = new Random();
             this.code = random.nextInt(1000000);
@@ -18,11 +19,9 @@ public class Prodotto {
             this.brand = brand;
             this.pryce = pryce;
             this.tax = tax;
-            this.fedelityCard = fedelityCard;
         } else {
             System.out.println("Uno o più valori sono errati, non posso creare l'oggetto.");
         }
-
     }
 
     public int getCode() {
@@ -38,11 +37,20 @@ public class Prodotto {
     }
 
     public Double getPryce() {
-        return this.pryce;
+        if (fidelityCard.equals("y")) {
+            return this.pryce - ((this.pryce / 100) * standardDiscount);
+        } else {
+            return this.pryce;
+        }
     }
 
     public Double getTaxedPryce() {
-        return pryce + ((pryce / 100) * tax);
+        if (fidelityCard.equals("y")) {
+            Double discountedPryce = getPryce();
+            return discountedPryce + ((discountedPryce / 100) * tax);
+        } else {
+            return this.pryce + ((this.pryce / 100) * this.tax);
+        }
     }
 
     public String getFormattedTaxedPryce() {
@@ -69,4 +77,18 @@ public class Prodotto {
         this.tax = Iva;
     }
 
+    public void setFidelityCard(String i) {
+        String temp = i.toLowerCase();
+        if (temp.equals("y") || temp.equals("n")) {
+            this.fidelityCard = temp;
+        }
+    }
+
+    public Boolean getFidelityCard() {
+        if (this.fidelityCard.equals("y")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
